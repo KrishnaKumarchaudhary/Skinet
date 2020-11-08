@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore.Sqlite;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Core.Interface;
 
 namespace API
 {
@@ -33,6 +34,8 @@ namespace API
             {
                 x.UseSqlite(_config.GetConnectionString("DefaultConnection"));
             });
+            services.AddScoped<IProductRepository, ProductRepository>();       
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
